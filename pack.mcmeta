@@ -3,7 +3,7 @@
         "pack_format": 18,
         "supported_formats": {
             "min_inclusive": 18,
-            "max_inclusive": 53
+            "max_inclusive": 55
         },
         "description": "Welcome to another dark side!\n\u00a78Expansion by aric3435 \u2025 1.19.0+ \u2025 2025.X.X"
     }
