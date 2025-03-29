@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-    Default Dark Mode Expansion adds and updates modded Minecraft GUIs for a more darker look while keeping most of the original Default Dark Mode textures by NebuIr in tact and unmodified.
+    Default Dark Mode Expansion is an add-on of Default Dark Mode. It adds/fixes over 60-70+ mods! It is recommended to use both resource packs together for the best Default Dark Mode experience possible.
 </p>
 
 ![Banner](https://i.imgur.com/p9lNs6l.png)
