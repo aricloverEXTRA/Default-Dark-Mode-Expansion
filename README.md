@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-    Default Dark Mode Expansion is an add-on of Default Dark Mode. It adds/fixes over 60-70+ mods! It is recommended to use both resource packs together for the best Default Dark Mode experience possible.
+    Default Dark Mode Expansion is an add-on of Default Dark Mode. It adds/fixes over 70-80+ mods! It is recommended to use both resource packs together for the best Default Dark Mode experience possible.
 </p>
 
 ![Banner](https://i.imgur.com/p9lNs6l.png)
