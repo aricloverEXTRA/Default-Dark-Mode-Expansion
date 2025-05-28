@@ -5,28 +5,31 @@
 </p>
 
 <p align="center">
-    <a aria-label="build" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/actions">
-        <img src="https://img.shields.io/github/actions/workflow/status/arichornloverALT/Default-Dark-Mode-Expansion/optimize.yml?branch=%221.21%22">
+    <a aria-label="Build" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/actions">
+        <img alt="Build" src="https://img.shields.io/github/actions/workflow/status/arichornloverALT/Default-Dark-Mode-Expansion/optimize.yml">
     </a>
-    <a aria-label="release" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/releases/latest">
-        <img alt="" src="https://img.shields.io/github/v/release/arichornloverALT/Default-Dark-Mode-Expansion">
+    <a aria-label="Release" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/releases/latest">
+        <img alt="Release" src="https://img.shields.io/github/v/release/arichornloverALT/Default-Dark-Mode-Expansion">
     </a>
-    <a aria-label="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-        <img src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-brightgreen.svg">
+    <a aria-label="License" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+        <img alt="License" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-brightgreen.svg">
     </a>
-    <a aria-label="github downloads" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/releases">
-        <img alt="" src="https://img.shields.io/github/downloads/arichornloverALT/Default-Dark-Mode-Expansion/total?logo=github">
+    <a aria-label="GitHub Downloads" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/releases">
+        <img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/arichornloverALT/Default-Dark-Mode-Expansion/total?logo=github">
     </a>
-    <a aria-label="modrinth downloads" href="https://modrinth.com/resourcepack/default-dark-mode-expansion/versions">
-        <img alt="" src="https://img.shields.io/modrinth/dt/m3vMfZFQ?labelColor=2D2D2D&color=2D2D2D&label=downloads&logo=modrinth&logoColor=green&style=flat">
+    <a aria-label="Modrinth Downloads" href="https://modrinth.com/resourcepack/default-dark-mode-expansion/versions">
+        <img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/m3vMfZFQ?labelColor=2D2D2D&color=2D2D2D&label=downloads&logo=modrinth&logoColor=green&style=flat">
     </a>
-    <a aria-label="curseforge downloads" href="https://www.curseforge.com/minecraft/texture-packs/default-dark-mode-expansion/files">
-        <img alt="" src="https://cf.way2muchnoise.eu/full_1077191_downloads.svg">
+    <a aria-label="CurseForge Downloads" href="https://www.curseforge.com/minecraft/texture-packs/default-dark-mode-expansion/files">
+        <img alt="CurseForge Downloads" src="https://cf.way2muchnoise.eu/full_1077191_downloads.svg">
+    </a>
+    <a aria-label="Darkomizer Downloads" href="https://darkomizer.com">
+        <img alt="Darkomizer Downloads" src="https://img.shields.io/endpoint?url=https://api.darkomizer.com/shields/downloads/darkomizer">
     </a>
 </p>
 
 <p align="center">
-    Default Dark Mode Expansion is an add-on of Default Dark Mode. It adds/fixes over 80-90+ mods! It is recommended to use both resource packs together for the best Default Dark Mode experience possible.
+    Default Dark Mode Expansion is an add-on of Default Dark Mode. It adds/fixes over 100+ mods! It is recommended to use both resource packs together for the best Default Dark Mode experience possible.
 </p>
 
 ![Banner](https://i.imgur.com/p9lNs6l.png)
