@@ -1,6 +1,6 @@
 Shulker Box Tooltip  
-[![Maven](https://img.shields.io/maven-metadata/v/https/maven.misterpemodder.com/libs-release/com/misterpemodder/shulkerboxtooltip-fabric/maven-metadata.xml.svg)](https://maven.misterpemodder.com/libs-release/com/misterpemodder/shulkerboxtooltip-fabric)
-[![CursreForge](http://cf.way2muchnoise.eu/full_315811_downloads.svg)](https://minecraft.curseforge.com/projects/shulkerboxtooltip)
+[![Maven](https://img.shields.io/maven-metadata/v/https/maven.misterpemodder.com/libs-release/com/misterpemodder/shulkerboxtooltip-fabric/maven-metadata.xml.svg)](https://maven.misterpemodder.com/libs-release/com/misterpemodder)
+[![CurseForge](http://cf.way2muchnoise.eu/full_315811_downloads.svg)](https://minecraft.curseforge.com/projects/shulkerboxtooltip)
 [![Modrinth](https://img.shields.io/modrinth/dt/2M01OLQq?color=1bd96a&label=modrinth%20downloads)](https://modrinth.com/mod/shulkerboxtooltip)
 [![CI](https://github.com/MisterPeModder/ShulkerBoxTooltip/workflows/Main/badge.svg)](https://github.com/MisterPeModder/ShulkerBoxTooltip/actions?query=workflow%3AMain)
 [![Crowdin](https://badges.crowdin.net/shulkerboxtooltip/localized.svg)](https://crowdin.com/project/shulkerboxtooltip)
@@ -16,9 +16,11 @@ This mod allows you to see a preview window of a shulker box contents when hover
 ## Developers
 
 ### List of artifacts
-- **com.misterpemodder:shulkerboxtooltip-common**: Platform-agnostic API
+- **com.misterpemodder:shulkerboxtooltip-common**: Platform-agnostic API (with Yarn/intermediary mappings)
+- **com.misterpemodder:shulkerboxtooltip-common-mojmap**: Platform-agnostic API (with official Mojang mappings)
 - **com.misterpemodder:shulkerboxtooltip-fabric**: Fabric Implementation
 - **com.misterpemodder:shulkerboxtooltip-forge**: Forge-specific API + Implementation
+- **com.misterpemodder:shulkerboxtooltip-neoforge**: NeoForge-specific API + Implementation
 
 ### Declaring the dependency (Fabric Loom/Architectury Loom)
 ```gradle
@@ -27,7 +29,7 @@ repositories {
 }
 
 dependencies {
-    // Change to 'shulkerboxtooltip-forge' or 'shulkerboxtooltip-common' depending on the artifact
+    // Change to 'shulkerboxtooltip-forge', 'shulkerboxtooltip-neoforge', or 'shulkerboxtooltip-common' depending on the artifact
     modImplementation("com.misterpemodder:shulkerboxtooltip-fabric:VERSION") { transitive false }
 }
 ```
@@ -44,9 +46,16 @@ On Fabric, add your plugin class as an entry point of type `"shulkerboxtooltip"`
 }
 ```
 
-On Forge, register your plugin by adding an extension point in your mod's initialization code:
+On NeoForge, register your plugin by adding an extension point in your mod's initialization code:
 ```java
 ModLoadingContext.get().registerExtensionPoint(ShulkerBoxTooltipPlugin.class,
+    () -> new ShulkerBoxTooltipPlugin(MyModShulkerBoxTooltipPlugin::new));
+```
+
+On Forge, register your plugin by adding an extension point in your mod's initialization code:
+```java
+FMLJavaModLoadingContext context = /* get instance from your mod's constructor */
+context.registerExtensionPoint(ShulkerBoxTooltipPlugin.class,
     () -> new ShulkerBoxTooltipPlugin(MyModShulkerBoxTooltipPlugin::new));
 ```
 
