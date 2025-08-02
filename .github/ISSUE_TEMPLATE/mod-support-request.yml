@@ -6,32 +6,55 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before submitting this mod support request, please make sure that your mod has not already been requested in another issue.
+        Before submitting this mod support request, make sure your mod hasn’t already been requested.
 
-        If you have multiple mods that you would like to request support for, please submit a **separate issue** for each mod.
+        ⚠️ If requesting support for multiple mods, please submit **separate issues** for each one.
 
-  - type: textarea
-    id: description
+  - type: dropdown
+    id: title-prefix
     attributes:
-      label: Description
-      description: Add any context or screenshots about the requested mod below.
+      label: Title Version Range
+      description: Select the applicable version range for this mod request. This will help organize support per release group.
+      options:
+        - '[Mod Support Request for 1.19.x–1.21.x] EXAMPLE MOD'
+        - '[Mod Support Request for 1.18.x] EXAMPLE MOD'
+        - '[Mod Support Request for 1.16.x (unreleased resource pack version)] EXAMPLE MOD'
+        - '[Mod Support Request for 1.12.x] EXAMPLE MOD'
+        - '[Mod Support Request] EXAMPLE MOD'
     validations:
-      required: false
+      required: true
+
+  - type: input
+    id: mod-name
+    attributes:
+      label: Mod Name
+      description: The name of the mod you’re requesting support for.
+      placeholder: 'Example Mod'
+    validations:
+      required: true
 
   - type: input
     id: url
     attributes:
       label: Link to the mod page
-      description: Please provide a URL to the mod page.
-      placeholder: 'Example: https://modrinth.com/resourcepack/default-dark-mode'
+      description: Provide a direct URL to the mod’s homepage.
+      placeholder: 'https://modrinth.com/mod/example-mod'
     validations:
       required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Add any context, screenshots, or compatibility notes for this request.
+    validations:
+      required: false
 
   - type: dropdown
     id: versions
     attributes:
-      label: Game versions
-      description: What game versions should be supported? Select all applicable game versions. Only the latest 4 major versions are supported. (and 1.12 aswell)
+      label: Game Versions
+      description: What versions of Minecraft should be supported?
       multiple: true
       options:
         - '1.21.7/1.21.8'
@@ -55,7 +78,7 @@ body:
     id: modloaders
     attributes:
       label: Mod Loaders
-      description: What mod loader is the mod using? Select all applicable modloaders.
+      description: Select the applicable mod loader(s) used by the mod.
       multiple: true
       options:
         - Fabric
