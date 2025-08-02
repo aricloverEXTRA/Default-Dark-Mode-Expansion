@@ -10,20 +10,6 @@ body:
 
         ⚠️ If requesting support for multiple mods, please submit **separate issues** for each one.
 
-  - type: dropdown
-    id: title-prefix
-    attributes:
-      label: Title Version Range
-      description: Select the applicable version range for this mod request. This will help organize support per release group.
-      options:
-        - '[Mod Support Request for 1.19.x–1.21.x] EXAMPLE MOD'
-        - '[Mod Support Request for 1.18.x] EXAMPLE MOD'
-        - '[Mod Support Request for 1.16.x (unreleased resource pack version)] EXAMPLE MOD'
-        - '[Mod Support Request for 1.12.x] EXAMPLE MOD'
-        - '[Mod Support Request] EXAMPLE MOD'
-    validations:
-      required: true
-
   - type: input
     id: mod-name
     attributes:
