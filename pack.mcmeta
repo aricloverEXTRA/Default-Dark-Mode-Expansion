@@ -1,10 +1,18 @@
 {
-    "pack": {
-        "pack_format": 18,
-        "supported_formats": {
-            "min_inclusive": 18,
-            "max_inclusive": 64
-        },
-        "description": "Welcome to another dark side!\n\u00a78by aric3435 \u2022 1.19.0+ \u2022 2025.X.X"
-    }
+  "pack": {
+    "pack_format": 18,
+    "supported_formats": {
+      "min_inclusive": 18,
+      "max_inclusive": 69
+    },
+    "description": "Welcome to another dark side!\n\u00a78by aric3435 \u2022 1.19+ \u2022 2025.10.1"
+  },
+  "overlays": {
+    "entries": [
+      {
+        "formats": { "min_inclusive": 34, "max_inclusive": 34 },
+        "directory": "assets_1.21"
+      }
+    ]
+  }
 }
