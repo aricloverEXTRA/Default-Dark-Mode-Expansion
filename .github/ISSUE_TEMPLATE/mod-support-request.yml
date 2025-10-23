@@ -40,10 +40,10 @@ body:
     id: versions
     attributes:
       label: Game Versions
-      description: What versions of Minecraft should be supported?
+      description: Which versions of Minecraft should be supported? (You can pick multiple.)
       multiple: true
       options:
-        - '1.21.9'
+        - '1.21.9/1.21.10'
         - '1.21.6-1.21.8'
         - '1.21.5'
         - '1.21.4'
