@@ -5,7 +5,7 @@ Essential hooks for modding with Fabric.
 Fabric API is the library for essential hooks and interoperability mechanisms for Fabric mods. Examples include:
 
 - Exposing functionality that is useful but difficult to access for many mods such as particles, biomes and dimensions
-- Adding events, hooks and APIs to improve interopability between mods.
+- Adding events, hooks and APIs to improve interoperability between mods.
 - Essential features such as registry synchronization and adding information to crash reports.
 - An advanced rendering API designed for compatibility with optimization mods and graphics overhaul mods.
 
@@ -15,7 +15,7 @@ For support and discussion for both developers and users, visit [the Fabric Disc
 
 ## Using Fabric API to play with mods
 
-Make sure you have install fabric loader first. More information about installing Fabric Loader can be found [here](https://fabricmc.net/use/).
+Make sure you have installed fabric loader first. More information about installing Fabric Loader can be found [here](https://fabricmc.net/use/).
 
 To use Fabric API, download it from [CurseForge](https://www.curseforge.com/minecraft/mc-mods/fabric-api), [GitHub Releases](https://github.com/FabricMC/fabric/releases) or [Modrinth](https://modrinth.com/mod/fabric-api).
 
@@ -23,7 +23,7 @@ The downloaded jar file should be placed in your `mods` folder.
 
 ## Using Fabric API to develop mods
 
-To setup a Fabric development environment, check out the [Fabric example mod](https://github.com/FabricMC/fabric-example-mod) and follow the instructions there. The example mod already depends on Fabric API.
+To set up a Fabric development environment, check out the [Fabric example mod](https://github.com/FabricMC/fabric-example-mod) and follow the instructions there. The example mod already depends on Fabric API.
 
 To include the full Fabric API with all modules in the development environment, add the following to your `dependencies` block in the gradle buildscript:
 
@@ -79,10 +79,7 @@ Instead of hardcoding version constants all over the build script, Gradle proper
 ## Contributing
 
 See something Fabric API doesn't support, a bug or something that may be useful? We welcome contributions to improve Fabric API.
-
-Check out [the Contributing guidelines](../CONTRIBUTING.md)*.
-
-\* The contributing guidelines are work in progress
+Make sure to read [the development guidelines](./CONTRIBUTING.md).
 
 ## Modules
 
