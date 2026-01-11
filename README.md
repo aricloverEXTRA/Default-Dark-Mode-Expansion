@@ -45,9 +45,13 @@ A list of supported mods can be found on the [wiki](https://github.com/nebuIr/De
 ## Screenshots (Default Dark Mode: Expansion)
 
 
-![Legacy4J Crafting Screen](https://github.com/user-attachments/assets/35e5160c-c750-4f4c-9d3c-d471eaafff87)
+<div style="display: flex; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/35e5160c-c750-4f4c-9d3c-d471eaafff87" width="400" alt="Legacy4J Crafting Screen">
+  <img src="https://github.com/user-attachments/assets/d45eb321-c4be-482c-bc3d-2fb01a5354b7" width="400" alt="Refined Storage Wireless Screen">
+</div>
 
-![Refined Storage Wireless Screen](https://github.com/user-attachments/assets/d45eb321-c4be-482c-bc3d-2fb01a5354b7)
 
 #
-<a href="https://billing.apexminecrafthosting.com/aff.php?aff=15169"><img src="https://github.com/user-attachments/assets/8becc6ba-6f85-480e-990e-006040118cb2" width="594" height="100" border="0"></a>
+<a href="https://kcbhosting.com/aff/aric">
+  <img src="https://cdn.modrinth.com/data/cached_images/7ad4c2e05801b95ec8fd7f1bfc02a170412603b6.png" alt="Hosting Banner">
+</a>
