@@ -1,0 +1,11 @@
+LICENSE ASSETS 
+
+This resource pack includes modified assets from third-party Minecraft mods.
+
+All original textures remain the property of their respective creators and are used here under the terms of their respective licenses, or with explicit permission.
+
+Redistribution of this pack outside of approved platforms (CurseForge, Modrinth, Planet Minecraft) is not permitted.
+
+If you are a mod author and wish to have your asset removed, please contact me directly at GitHub @aricloverEXTRA.
+
+This pack is provided for educational and aesthetic purposes. No copyright infringement is intended.
