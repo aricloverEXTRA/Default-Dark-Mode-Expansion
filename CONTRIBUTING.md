@@ -53,6 +53,9 @@ os.makedirs(output_dir, exist_ok=True)
 # Darkening factor (0.4 = 40% brightness)
 FACTOR = 0.4
 
+# Optional grayscale mode (OFF by default)
+GRAYSCALE = False
+
 def darken_color(color, factor=FACTOR):
     r, g, b, *a = color
     r = int(r * factor)
@@ -61,6 +64,13 @@ def darken_color(color, factor=FACTOR):
     if a:  # preserve alpha channel if present
         return (r, g, b, a[0])
     return (r, g, b)
+
+def to_grayscale(color):
+    r, g, b, *a = color
+    gray = int(0.299*r + 0.587*g + 0.114*b)
+    if a:
+        return (gray, gray, gray, a[0])
+    return (gray, gray, gray)
 
 for root, _, files in os.walk(input_dir):
     for file in files:
@@ -73,7 +83,14 @@ for root, _, files in os.walk(input_dir):
 
             img = Image.open(in_path).convert("RGBA")
             pixels = img.getdata()
+
+            # Apply darkening
             new_pixels = [darken_color(p) for p in pixels]
+
+            # Optional grayscale step
+            if GRAYSCALE:
+                new_pixels = [to_grayscale(p) for p in new_pixels]
+
             img.putdata(new_pixels)
             img.save(out_path)
 
