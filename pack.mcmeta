@@ -3,10 +3,10 @@
         "pack_format": 63,
         "supported_formats": {
             "min_inclusive": 63,
-            "max_inclusive": 69
+            "max_inclusive": 75
         },
         "min_format": [63, 0],
-        "max_format": [69, 0],
-        "description": "Welcome to the dark side!\n\u00a78by nebulr \u2022 1.21.6+ \u2022 2025.6.0"
+        "max_format": [75, 0],
+        "description": "Welcome to the dark side!\n\u00a78by nebulr \u2022 1.21.11 \u2022 2025.6.0"
     }
 }
