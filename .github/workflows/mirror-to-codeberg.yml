@@ -15,19 +15,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Push selected branches to Codeberg
         run: |
-          git remote add codeberg https://$CODEBERG_USER:$CODEBERG_TOKEN@codeberg.org/aric3435/Default-Dark-Mode-Expansion.git
-
-          # Push only the branches you want
-          git push codeberg 1.21:1.21 --force
-          git push codeberg 1.18:1.18 --force
-          git push codeberg 1.16:1.16 --force
-          git push codeberg 1.12:1.12 --force
+          git remote add codeberg https://$CODEBERG_USER:$CODEBERG_TOKEN@codeberg.org/aric3435/Default-Dark-Mode-Expansion.git          
+          git push codeberg ${GITHUB_REF_NAME}:${GITHUB_REF_NAME} --force
         env:
           CODEBERG_USER: ${{ secrets.CODEBERG_USER }}
           CODEBERG_TOKEN: ${{ secrets.CODEBERG_TOKEN }}
