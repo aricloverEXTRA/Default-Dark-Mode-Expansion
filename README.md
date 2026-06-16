@@ -35,8 +35,8 @@
 ![Banner](https://i.imgur.com/p9lNs6l.png)
 
 ## Download
-[<img alt="modrinth" width="177" height="56" src="https://i.imgur.com/vzovT62.png">](https://modrinth.com/resourcepack/default-dark-mode-expansion) [<img alt="curseforge" width="195" height="56" src="https://i.imgur.com/yvuoYHq.png">](https://legacy.curseforge.com/minecraft/texture-packs/default-dark-mode-expansion)
-[<img alt="planet_minecraft" width="56" height="56" src="https://cdn.modrinth.com/data/cached_images/c495fd44d871da79ad235d58b332d58c79489b77.jpeg">](https://www.planetminecraft.com/texture-pack/default-dark-mode-expansion-1-19-1-21)
+[<img alt="modrinth" width="188" height="60" src="https://github.com/user-attachments/assets/01673c05-08fe-474e-a2bf-0d0a60572187">](https://modrinth.com/resourcepack/default-dark-mode-expansion) [<img alt="curseforge" width="188" height="60" src="https://github.com/user-attachments/assets/7b7777be-b974-413d-9620-a37032e707ca">](https://legacy.curseforge.com/minecraft/texture-packs/default-dark-mode-expansion)
+[<img alt="planet_minecraft" width="188" height="60" src="https://github.com/user-attachments/assets/d851b248-cb5a-4542-ba72-c44f88e87852">](https://www.planetminecraft.com/texture-pack/default-dark-mode-expansion-1-19-1-21)
 
 ## Mod Support
 
@@ -52,6 +52,4 @@ A list of supported mods can be found on the [wiki](https://github.com/nebuIr/De
 
 
 #
-<a href="https://kcbhosting.com/aff/aric">
-  <img src="https://cdn.modrinth.com/data/cached_images/7ad4c2e05801b95ec8fd7f1bfc02a170412603b6.png" alt="Hosting Banner">
-</a>
+## Server Partner Banner Unavailable
