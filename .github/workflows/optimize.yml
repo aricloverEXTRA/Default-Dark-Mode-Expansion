@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -44,10 +44,8 @@ jobs:
 
       - name: ⬆️ Commit and push changes
         if: ${{ steps.optimized-files.outputs.all_optimized_files }}
-        uses: tohgarashi/verified-commit@v2.x
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          files: ${{ steps.optimized-files.outputs.all_optimized_files }}
-          commit-message: ':zap: Optimize PNG files'
-          ref: ${{ github.ref }}
+          commit_message: ':zap: Optimize PNG files'
+          file_pattern: ${{ steps.optimized-files.outputs.all_optimized_files }}
+
