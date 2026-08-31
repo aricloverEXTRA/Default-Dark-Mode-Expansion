@@ -30,19 +30,13 @@ jobs:
         id: find
         run: |
           set -e
-          # Collect all PNGs ever added/modified/renamed by you.
-          # We match both author and committer, and both your handles.
           > /tmp/touched.txt
           for pattern in "aricloverEXTRA" "aric3435" "Aric3435" "ariclover"; do
             git log --all --author="$pattern" --name-only --pretty=format: --diff-filter=AMR | grep -Ei '\.png$' >> /tmp/touched.txt || true
             git log --all --committer="$pattern" --name-only --pretty=format: --diff-filter=AMR | grep -Ei '\.png$' >> /tmp/touched.txt || true
           done
-          # Also include NebuIr exclusion check: remove any file that was ONLY touched by NebuIr
-          # Since we only collected your touches, NebuIr-only files are already excluded.
           sort -u /tmp/touched.txt -o /tmp/touched.txt
           echo "Raw touched count: $(wc -l < /tmp/touched.txt)"
-
-          # Keep only files that still exist on disk
           > /tmp/existing.txt
           while IFS= read -r f; do
             [ -z "$f" ] && continue
@@ -50,9 +44,9 @@ jobs:
               echo "$f" >> /tmp/existing.txt
             fi
           done < /tmp/touched.txt
-
           sort -u /tmp/existing.txt -o /tmp/existing.txt
           COUNT=$(wc -l < /tmp/existing.txt | tr -d ' ')
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
           echo "Existing PNGs touched by you: $COUNT"
           if [ "$COUNT" -gt 0 ]; then
             head -n 50 /tmp/existing.txt
@@ -60,16 +54,6 @@ jobs:
           else
             echo "No PNGs found for aricloverEXTRA — nothing to do."
           fi
-
-          # Export for next steps
-          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-          echo "files<<$EOF" >> $GITHUB_OUTPUT
-          cat /tmp/existing.txt >> $GITHUB_OUTPUT
-          echo "$EOF" >> $GITHUB_OUTPUT
-          echo "count=$COUNT" >> $GITHUB_OUTPUT
-
-          # Save null-separated for xargs
-          tr '\n' '\0' < /tmp/existing.txt > /tmp/existing0.txt || true
 
       - name: ⚡ Optimize PNG files (global)
         if: steps.find.outputs.count != '0'
@@ -87,6 +71,7 @@ jobs:
           echo "$(git status --porcelain | sed s/^...//)" >> $GITHUB_OUTPUT
           echo "$EOF" >> $GITHUB_OUTPUT
           git status --porcelain | head -n 100 || true
+          git diff --stat | head -n 100 || true
 
       - name: 📋 Generate affected folders report (global)
         if: steps.find.outputs.count != '0'
@@ -152,7 +137,7 @@ jobs:
 
       - name: 📦 Upload affected folders artifact (global)
         if: steps.find.outputs.count != '0'
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         with:
           name: affected-folders-global-${{ github.run_number }}
           path: /tmp/report/
@@ -165,6 +150,6 @@ jobs:
           commit_message: ':zap: Optimize PNG files (global — aricloverEXTRA only)'
           repo: ${{ github.repository }}
           branch: ${{ github.head_ref || github.ref_name }}
-          file_pattern: ${{ steps.optimized.outputs.all_optimized_files }}
+          file_pattern: "."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
