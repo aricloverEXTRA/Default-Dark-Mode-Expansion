@@ -1,0 +1,97 @@
+name: 🌐 Optimize All PNGs (Global — aricloverEXTRA only)
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: optimize-global
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: 🌐 Optimize All PNGs (Global)
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get full history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Install oxipng
+        uses: baptiste0928/cargo-install@v3
+        with:
+          crate: oxipng
+          version: latest
+
+      - name: 🔍 Find PNGs touched by aricloverEXTRA (exclude NebuIr)
+        id: find
+        run: |
+          set -e
+          # Collect all PNGs ever added/modified/renamed by you.
+          # We match both author and committer, and both your handles.
+          > /tmp/touched.txt
+          for pattern in "aricloverEXTRA" "aric3435" "Aric3435" "ariclover"; do
+            git log --all --author="$pattern" --name-only --pretty=format: --diff-filter=AMR | grep -Ei '\.png$' >> /tmp/touched.txt || true
+            git log --all --committer="$pattern" --name-only --pretty=format: --diff-filter=AMR | grep -Ei '\.png$' >> /tmp/touched.txt || true
+          done
+          # Also include NebuIr exclusion check: remove any file that was ONLY touched by NebuIr
+          # Since we only collected your touches, NebuIr-only files are already excluded.
+          sort -u /tmp/touched.txt -o /tmp/touched.txt
+          echo "Raw touched count: $(wc -l < /tmp/touched.txt)"
+
+          # Keep only files that still exist on disk
+          > /tmp/existing.txt
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            if [ -f "$f" ]; then
+              echo "$f" >> /tmp/existing.txt
+            fi
+          done < /tmp/touched.txt
+
+          sort -u /tmp/existing.txt -o /tmp/existing.txt
+          COUNT=$(wc -l < /tmp/existing.txt | tr -d ' ')
+          echo "Existing PNGs touched by you: $COUNT"
+          if [ "$COUNT" -gt 0 ]; then
+            head -n 50 /tmp/existing.txt
+            [ "$COUNT" -gt 50 ] && echo "... and $((COUNT-50)) more"
+          else
+            echo "No PNGs found for aricloverEXTRA — nothing to do."
+          fi
+
+          # Export for next steps
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "files<<$EOF" >> $GITHUB_OUTPUT
+          cat /tmp/existing.txt >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+
+          # Save null-separated for xargs
+          tr '\n' '\0' < /tmp/existing.txt > /tmp/existing0.txt || true
+
+      - name: ⚡ Optimize PNG files (global)
+        if: steps.find.outputs.count != '0'
+        run: |
+          echo "Optimizing $(wc -l < /tmp/existing.txt) files..."
+          # xargs handles bulk + spaces safely; --strip safe keeps metadata safe
+          cat /tmp/existing.txt | tr '\n' '\0' | xargs -0 -r oxipng -s -o 3 -i off --strip safe
+          echo "Done."
+
+      - name: 🧾 Get optimized files
+        id: optimized
+        if: steps.find.outputs.count != '0'
+        run: |
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "all_optimized_files<<$EOF" >> $GITHUB_OUTPUT
+          echo "$(git status --porcelain | sed s/^...//)" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
+          git status --porcelain | head -n 50 || true
+
+      - name: ⬆️ Commit and push
+        if: steps.optimized.outputs.all_optimized_files != ''
+        uses: planetscale/ghcommit-action@v0.2.22
+        with:
+          commit_message: ':zap: Optimize PNG files (global — aricloverEXTRA only)'
+          file_pattern: ${{ steps.optimized.outputs.all_optimized_files }}
