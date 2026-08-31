@@ -152,15 +152,19 @@ jobs:
 
       - name: 📦 Upload affected folders artifact (global)
         if: steps.find.outputs.count != '0'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: affected-folders-global-${{ github.run_number }}
           path: /tmp/report/
           retention-days: 14
 
       - name: ⬆️ Commit and push
-        if: steps.optimized.outputs.all_optimized_files != ''
+        if: ${{ steps.optimized.outputs.all_optimized_files }}
         uses: planetscale/ghcommit-action@v0.2.22
         with:
           commit_message: ':zap: Optimize PNG files (global — aricloverEXTRA only)'
+          repo: ${{ github.repository }}
+          branch: ${{ github.head_ref || github.ref_name }}
           file_pattern: ${{ steps.optimized.outputs.all_optimized_files }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
