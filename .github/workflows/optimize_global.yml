@@ -75,8 +75,7 @@ jobs:
         if: steps.find.outputs.count != '0'
         run: |
           echo "Optimizing $(wc -l < /tmp/existing.txt) files..."
-          # xargs handles bulk + spaces safely; --strip safe keeps metadata safe
-          cat /tmp/existing.txt | tr '\n' '\0' | xargs -0 -r oxipng -s -o 3 -i off --strip safe
+          cat /tmp/existing.txt | tr '\n' '\0' | xargs -0 -r oxipng -o 3 -i off --strip safe
           echo "Done."
 
       - name: 🧾 Get optimized files
@@ -87,7 +86,77 @@ jobs:
           echo "all_optimized_files<<$EOF" >> $GITHUB_OUTPUT
           echo "$(git status --porcelain | sed s/^...//)" >> $GITHUB_OUTPUT
           echo "$EOF" >> $GITHUB_OUTPUT
-          git status --porcelain | head -n 50 || true
+          git status --porcelain | head -n 100 || true
+
+      - name: 📋 Generate affected folders report (global)
+        if: steps.find.outputs.count != '0'
+        run: |
+          mkdir -p /tmp/report
+          git status --porcelain | sed 's/^...//' | grep -Ei '\.png$' > /tmp/optimized.txt || true
+          > /tmp/optimized-folders.txt
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            if [[ "$f" == assets_1.21/assets/* ]]; then
+              echo "$f" | cut -d'/' -f1-3 >> /tmp/optimized-folders.txt
+            elif [[ "$f" == assets/* ]]; then
+              echo "$f" | cut -d'/' -f1-2 >> /tmp/optimized-folders.txt
+            else
+              dirname "$f" >> /tmp/optimized-folders.txt
+            fi
+          done < /tmp/optimized.txt
+          sort -u /tmp/optimized-folders.txt -o /tmp/optimized-folders.txt || true
+          > /tmp/candidate-folders.txt
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            if [[ "$f" == assets_1.21/assets/* ]]; then
+              echo "$f" | cut -d'/' -f1-3 >> /tmp/candidate-folders.txt
+            elif [[ "$f" == assets/* ]]; then
+              echo "$f" | cut -d'/' -f1-2 >> /tmp/candidate-folders.txt
+            else
+              dirname "$f" >> /tmp/candidate-folders.txt
+            fi
+          done < /tmp/existing.txt
+          sort -u /tmp/candidate-folders.txt -o /tmp/candidate-folders.txt || true
+          {
+            echo "# Global Optimize — Affected Folders Report"
+            echo ""
+            echo "**Run:** ${{ github.run_number }} | **Branch:** ${{ github.ref_name }} | **Commit:** ${{ github.sha }}"
+            echo ""
+            echo "## Candidate PNGs (touched by aricloverEXTRA, existing) — $(wc -l < /tmp/existing.txt) files"
+            echo '```'
+            head -n 200 /tmp/existing.txt || echo "(none)"
+            [ "$(wc -l < /tmp/existing.txt)" -gt 200 ] && echo "... truncated"
+            echo '```'
+            echo ""
+            echo "## Candidate asset folders — $(wc -l < /tmp/candidate-folders.txt) folders"
+            echo '```'
+            cat /tmp/candidate-folders.txt || echo "(none)"
+            echo '```'
+            echo ""
+            echo "## Actually optimized PNGs — $(wc -l < /tmp/optimized.txt) files"
+            echo '```'
+            cat /tmp/optimized.txt || echo "(none)"
+            echo '```'
+            echo ""
+            echo "## Optimized asset folders — $(wc -l < /tmp/optimized-folders.txt) folders"
+            echo '```'
+            cat /tmp/optimized-folders.txt || echo "(none)"
+            echo '```'
+          } > /tmp/report/affected-folders.md
+          cat /tmp/report/affected-folders.md
+          cp /tmp/existing.txt /tmp/report/candidate-pngs.txt 2>/dev/null || true
+          cp /tmp/candidate-folders.txt /tmp/report/ 2>/dev/null || true
+          cp /tmp/optimized.txt /tmp/report/optimized-pngs.txt 2>/dev/null || true
+          cp /tmp/optimized-folders.txt /tmp/report/ 2>/dev/null || true
+          cat /tmp/report/affected-folders.md >> $GITHUB_STEP_SUMMARY || true
+
+      - name: 📦 Upload affected folders artifact (global)
+        if: steps.find.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: affected-folders-global-${{ github.run_number }}
+          path: /tmp/report/
+          retention-days: 14
 
       - name: ⬆️ Commit and push
         if: steps.optimized.outputs.all_optimized_files != ''
