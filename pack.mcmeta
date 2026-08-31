@@ -12,9 +12,9 @@
   "overlays": {
     "entries": [
       {
-        "formats": { "min_inclusive": 34, "max_inclusive": 34 },
+        "formats": { "min_inclusive": 34, "max_inclusive": 88 },
         "min_format": 34,
-        "max_format": 34,
+        "max_format": 88,
         "directory": "assets_1.21"
       }
     ]
