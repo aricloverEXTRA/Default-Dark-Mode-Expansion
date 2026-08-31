@@ -23,6 +23,7 @@ artwork under /assets/ and /assets_1.21/ (the "Assets").
    - Modrinth
    - Planet Minecraft
    - GitHub Releases (aricloverEXTRA/Default-Dark-Mode-Expansion)
+   - Codeberg Releases (aric3435/Default-Dark-Mode-Expansion)
    Any other standalone source is unauthorized.
 
 4. Allowed Uses (Exceptions to §2)

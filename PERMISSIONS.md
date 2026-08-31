@@ -4,7 +4,7 @@
 > **Assets** (all textures under `assets/` / `assets_1.21/`) → All Rights Reserved — see `LICENSE_ASSETS.txt`
 
 **Official distribution only on:**
-- CurseForge · Modrinth · Planet Minecraft · GitHub Releases
+- CurseForge · Modrinth · Planet Minecraft · GitHub / Codeberg Releases
 
 Re-uploads on 9Minecraft, Gamerunner and other aggregator/monetized mirror sites are **not authorized**.
 
