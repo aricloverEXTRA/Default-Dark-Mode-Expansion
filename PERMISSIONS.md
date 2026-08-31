@@ -1,10 +1,13 @@
-## Distribution Permissions
+# Permissions Summary
 
-The Default Dark Mode: Expansion resource pack is ONLY officially published on:
-- CurseForge
-- Modrinth
-- Planet Minecraft
+> **Code** (scripts, configs, workflows) → MIT — see `LICENSE.txt`  
+> **Assets** (all textures under `assets/` / `assets_1.21/`) → All Rights Reserved — see `LICENSE_ASSETS.txt`
 
-Any other sites—such as 9Minecraft, Gamerunner, and similar—are NOT authorized to redistribute any part of this pack.
+**Official distribution only on:**
+- CurseForge · Modrinth · Planet Minecraft · GitHub Releases
 
-Only the **code** is MIT licensed. The **assets** are ALL RIGHTS RESERVED. See LICENSE_ASSETS.txt for details.
+Re-uploads on 9Minecraft, Gamerunner and other aggregator/monetized mirror sites are **not authorized**.
+
+**Allowed:** reviews/videos/streams with credit + link, and bundling *inside* modpacks published on CurseForge/Modrinth (with credit/link, no standalone repost). Players can then use those modpacks on any launcher (Prism, ATLauncher, etc.) — the restriction is where the modpack is published, not where it's played. For modpacks published elsewhere, link to the official page instead of bundling.
+
+Mod authors: contact `@aricloverEXTRA` on GitHub for takedown or credit changes.

@@ -1,11 +1,67 @@
-LICENSE ASSETS 
+ASSET LICENSE — ALL RIGHTS RESERVED
+Copyright (c) 2026 Aric3435
 
-This resource pack includes modified assets from third-party Minecraft mods.
+This license applies to all textures, images, GUI assets and other
+artwork under /assets/ and /assets_1.21/ (the "Assets").
 
-All original textures remain the property of their respective creators and are used here under the terms of their respective licenses, or with explicit permission.
+1. Ownership
+   All Assets are © their respective creators. Dark-mode edits are
+   © Aric3435. Third-party mod textures remain property of their
+   original mod authors and are included either under their original
+   license or with permission.
 
-Redistribution of this pack outside of approved platforms (CurseForge, Modrinth, Planet Minecraft) is not permitted.
+2. No Standalone Redistribution
+   You may NOT re-upload, re-host, mirror, or redistribute the Assets
+   as a standalone pack (in whole or in part) on any third-party
+   site, including but not limited to 9Minecraft, Gamerunner and
+   similar aggregator/ad-wall sites. Monetized mirrors are strictly
+   prohibited.
 
-If you are a mod author and wish to have your asset removed, please contact me directly at GitHub @aricloverEXTRA.
+3. Approved Distribution Only
+   Official standalone releases are published ONLY on:
+   - CurseForge
+   - Modrinth
+   - Planet Minecraft
+   - GitHub Releases (aricloverEXTRA/Default-Dark-Mode-Expansion)
+   Any other standalone source is unauthorized.
 
-This pack is provided for educational and aesthetic purposes. No copyright infringement is intended.
+4. Allowed Uses (Exceptions to §2)
+
+   a) Personal Use — download and use for personal, non-commercial
+      gameplay.
+
+   b) Content Creation — you MAY showcase, review, stream, and
+      include screenshots/video of the pack (YouTube, Twitch, TikTok,
+      articles, etc.) with credit and a link to an official source.
+      No permission needed.
+
+   c) Modpack Inclusion — you MAY bundle the pack *inside* a
+      modpack zip published on CurseForge or Modrinth. You must
+      credit "Default Dark Mode: Expansion by Aric3435" with a link
+      to the official page, not claim ownership, and not re-upload
+      the pack separately for ad revenue. Players may then play that
+      modpack on any launcher (Prism Launcher, ATLauncher, GDLauncher,
+      etc.) — the CurseForge/Modrinth rule is about where the modpack
+      is *published*, not where it is *played*.
+      For modpacks published elsewhere, please link to the official
+      pack page as a dependency instead of bundling, or ask permission.
+      Standalone reposts outside a modpack are not allowed.
+
+   You may not create or distribute a fork/derivative resource pack
+   using these Assets as a standalone release without written
+   permission.
+
+5. Mod Author Takedown
+   If you are a mod author and want your GUI/assets removed or
+   credited differently, open an issue or contact @aricloverEXTRA
+   on GitHub — prompt removal/credit fix guaranteed.
+
+6. Contributions
+   By contributing textures/code via Pull Request you agree to license
+   your contribution under the same terms as this repository (MIT for
+   code, All Rights Reserved for Assets) and confirm you have the
+   right to do so.
+
+This pack is provided for aesthetic purposes. No copyright
+infringement is intended. MIT license in LICENSE.txt applies to
+code ONLY and does not apply to Assets.

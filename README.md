@@ -11,8 +11,11 @@
     <a aria-label="Release" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/releases/latest">
         <img alt="Release" src="https://img.shields.io/github/v/release/arichornloverALT/Default-Dark-Mode-Expansion">
     </a>
-    <a aria-label="License" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-        <img alt="License" src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-brightgreen.svg">
+    <a aria-label="License" href="./LICENSE.txt">
+        <img alt="License" src="https://img.shields.io/badge/code-MIT-green.svg">
+    </a>
+    <a aria-label="Assets License" href="./LICENSE_ASSETS.txt">
+        <img alt="Assets License" src="https://img.shields.io/badge/assets-All%20Rights%20Reserved-red.svg">
     </a>
     <a aria-label="GitHub Downloads" href="https://github.com/arichornloverALT/Default-Dark-Mode-Expansion/releases">
         <img alt="GitHub Downloads" src="https://img.shields.io/github/downloads/arichornloverALT/Default-Dark-Mode-Expansion/total?logo=github">
@@ -51,5 +54,3 @@ A list of supported mods can be found on the [wiki](https://github.com/nebuIr/De
 </div>
 
 
-#
-## Server Partner Banner Unavailable

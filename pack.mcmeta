@@ -3,11 +3,11 @@
     "pack_format": 18,
     "supported_formats": {
       "min_inclusive": 18,
-      "max_inclusive": 88
+      "max_inclusive": 98
     },
     "min_format": 18,
-    "max_format": 88,
-    "description": "Welcome to another dark side!\n\u00a78by aric3435 \u2022 1.19+\u2022 2026.X.X"
+    "max_format": 98,
+    "description": "Welcome to another dark side!\n\u00a78by aric3435 \u2022 1.19+\u2022 2026.9.1"
   },
   "overlays": {
     "entries": [
